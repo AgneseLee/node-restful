@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "agneseli",
+        "sex": "female",
+        "pic": "https://cdn.pixabay.com/photo/2020/01/13/23/15/snowboarding-4763731__340.jpg"
+    },
+    {
+        "id": 2,
+        "name": "joown",
+        "sex": "man",
+        "pic": "https://cdn.pixabay.com/photo/2020/01/18/15/47/teddy-4775611__340.jpg"
+    },
+    {
+        "id": 4,
+        "name": "anuodo",
+        "sex": "man",
+        "pic": "https://cdn.pixabay.com/photo/2020/01/17/12/18/orange-4772850__340.jpg"
+    },
+    {
+        "id": 3,
+        "sex": "man",
+        "pic": "https://cdn.pixabay.com/photo/2020/01/18/15/47/teddy-4775611__340.jpg",
+        "name": "weizhen",
+        "password": "f654e758786f5325b577a41a09464b03"
+    }
+]

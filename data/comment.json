@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "blogger_id": 1,
+        "user_id": 1,
+        "content": "cccccaaaaa"
+    },
+    {
+        "id": 2,
+        "blogger_id": 1,
+        "user_id": 2,
+        "content": "cccccaaaaa"
+    },
+    {
+        "id": 3,
+        "blogger_id": 2,
+        "user_id": 2,
+        "content": "cccccaaaaa"
+    },
+    {
+        "id": 4,
+        "blogger_id": 3,
+        "user_id": 3,
+        "content": "cccccaaaaa"
+    },
+    {
+        "id": 5,
+        "blogger_id": 3,
+        "user_id": 3,
+        "content": "cccccaaaaa"
+    },
+    {
+        "id": 6,
+        "blogger_id": 3,
+        "user_id": 1,
+        "content": "cccccaaaaa"
+    },
+    {
+        "id": 7,
+        "blogger_id": 4,
+        "user_id": 1,
+        "content": "cccccaaaaa"
+    },
+    {
+        "id": 7,
+        "blogger_id": 3,
+        "user_id": 5,
+        "content": "bbbbbb"
+    }
+]

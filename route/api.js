@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken');
 const middleWare = require('../middle-ware')
 const { promisify } = require('util')
 
+const $db = require('../db');
+
 const bloggerModel = require('../model/blogger')
 const commentModel = require('../model/comment')
 const userModel = require('../model/user')
@@ -49,23 +51,27 @@ const getHandler = {
     '/comment/get_list': async function (req, res) {
         let id = querystring.parse(url.parse(req.url).query).id || 0
         id = Number(id)
+        const list = await $db.getCommentList(id)
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf8' });
-        let readStream = fs.createReadStream(COMMENT_PATH);
-        let chunks = []
-        let output
-        readStream.on('close', () => {
-            output = JSON.parse(Buffer.concat(chunks).toString()).filter(item => item.blogger_id === id)
-            res.end(JSON.stringify(output))
-        });
-        readStream.on('data', chunk => {
-            chunks.push(chunk);
-        });
+        res.end(list)
+        // let readStream = fs.createReadStream(COMMENT_PATH);
+        // let chunks = []
+        // let output
+        // readStream.on('close', () => {
+        //     output = JSON.parse(Buffer.concat(chunks).toString()).filter(item => item.blogger_id === id)
+        //     res.end(JSON.stringify(output))
+        // });
+        // readStream.on('data', chunk => {
+        //     chunks.push(chunk);
+        // });
 
-        readStream.on('error', (err) => {
-            console.trace();
-            console.error('Stack:', err.stack);
-            console.error('The error raised was: static file fail! ', err);
-        });
+        // readStream.on('error', (err) => {
+        //     console.trace();
+        //     console.error('Stack:', err.stack);
+        //     console.error('The error raised was: static file fail! ', err);
+        // });
+
+
     },
 
     '/404': function (req, res) {
@@ -162,11 +168,11 @@ const api = {
             req.on('end', async () => {
                 if (pathname.indexOf('login') === -1) {
                     const info = await middleWare(req, res)
-                   
+
                     if (info.code === 0 && info.success === 1) {
                         postHandler[pathname](postData, req, res)
-                    }else{
-                        console.log('请求失败'+ info.toString())
+                    } else {
+                        console.log('请求失败' + info.toString())
                         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf8' });
                         res.end(JSON.stringify(info));
                     }

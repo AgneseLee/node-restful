@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { promisify } = require('util')
 const COMMENT_PATH = path.resolve(__dirname, '../data/comment.json')
+const $sql = require('../db/sqlMap');
 
 const readFileAsync = promisify(fs.readFile)
 const writeFileAsync = promisify(fs.writeFile)
